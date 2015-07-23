@@ -1,6 +1,6 @@
 /**
 * 
-* This file is part of MuraPlugin
+* This file is part of MuraSocial
 *
 * Copyright 2015 John Sieber
 * Licensed under the Apache License, Version v2.0

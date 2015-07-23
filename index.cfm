@@ -31,7 +31,7 @@
 	</ul>
 
 	<h3>Need help?</h3>
-	<p>If you're running into an issue, please let me know at <a href="https://github.com/stevewithington/#HTMLEditFormat(pluginConfig.getPackage())#/issues">https://github.com/stevewithington/#HTMLEditFormat(pluginConfig.getPackage())#/issues</a> and I'll try to address it as soon as I can.</p>
+	<p>If you're running into an issue, please let me know at <a href="https://github.com/jsieber-aca/#HTMLEditFormat(pluginConfig.getPackage())#/issues">https://github.com/jsieber-aca/#HTMLEditFormat(pluginConfig.getPackage())#/issues</a> and I'll try to address it as soon as I can.</p>
 	
 	<p>Thanks!<br />
 	<a href="http://john-sieber.com">John Sieber</a></p>

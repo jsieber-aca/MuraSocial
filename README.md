@@ -8,6 +8,9 @@ This is a Mura CMS plugin to aid in sharing content to Social Networks.
 * Adobe ColdFusion 10.0.0
 * Lucee 4.5
 
+##This plugin requires the creation of a non-expiring Page Access token for the Facebook Page that you will be posting to. The following instructions show how to create such an AccessToken.
+ToDo: create instructions here...
+
 
 ##License
 Copyright 2015 John Sieber
