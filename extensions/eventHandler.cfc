@@ -32,6 +32,7 @@ component accessors=true extends='mura.plugin.pluginGenericEventHandler' output=
 		var tp = arguments.$.initTracePoint('MuraSocial.extensions.eventHandler.onBeforePageDefaultSave');
         // Makes any methods of the object accessible via $.yourPluginPackageName
 		var contentRenderer = new contentRenderer(arguments.$);
+		var fbSocialManager = getfbSocialManager(arguments.$);
 		arguments.$.setCustomMuraScopeKey(variables.settings.package, contentRenderer);
         arguments.$.setCustomMuraScopeKey('fbSocialManager', fbSocialManager);
         arguments.$.setCustomMuraScopeKey('fbSocialEventHandler', this);
@@ -65,21 +66,19 @@ component accessors=true extends='mura.plugin.pluginGenericEventHandler' output=
             $.content('postToFacebook', '0');
             // content is set to display immediately and has been approved.
 			if($.content('display') eq 1 && $.content('approved')) {
-				
                 postTime = dateAdd("n", 10, now());
-				postTimeUTC = fbSocialManager.getfbSocialGateway().dateToUTC(postTime);
-				cleanSummary = event.getContentRenderer().stripHTML($.content('summary'));
-				
-            	
             }else if($.content('display') eq 2 && $.content('approved')){
-			// scheduled mura content - setup scheduled Facebook post.
-				
-				postTime = dateAdd("n", 10, $.content('displayStart'));
-				postTimeUTC = fbSocialManager.getfbSocialGateway().dateToUTC(postTime);
-				cleanSummary = event.getContentRenderer().stripHTML($.content('summary'));
-				
+				if(dateCompare($.content('displayStart'), now()) == 1){
+					// dispaly date is in the future due to scheduled mura content - setup scheduled Facebook post.
+					postTime = dateAdd("n", 10, $.content('displayStart'));
+				}else{
+					// content that was previously scheduled, but is now live. Schedule in ten minutes
+					postTime = dateAdd("n", 10, now());
+				}
 			}
 			// post to Facebook
+			postTimeUTC = fbSocialManager.getfbSocialGateway().dateToUTC(postTime);
+			cleanSummary = event.getContentRenderer().stripHTML($.content('summary'));
 			post = fbSocialManager.getfbSocialGateway().postToFacebookPage(message="#$.content('title')#"
                                                         , link="#$.content().getURL(complete='true')#"
                                                         , description="#cleanSummary#"
