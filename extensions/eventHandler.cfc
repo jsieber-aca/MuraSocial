@@ -55,6 +55,7 @@ component accessors=true extends='mura.plugin.pluginGenericEventHandler' output=
         var post = '';
         var postTime = '';
 		var cleanSummary = '';
+		var contentLink = '';
 		
         // writeDump(var="#$.content().getAllValues()#", top=1, abort=true);
         
@@ -77,10 +78,11 @@ component accessors=true extends='mura.plugin.pluginGenericEventHandler' output=
 				}
 			}
 			// post to Facebook
+			contentLink = (len($.content('postToFacebookLink'))) ? $.content('postToFacebookLink') : $.content().getURL(complete='true');
 			postTimeUTC = fbSocialManager.getfbSocialGateway().dateToUTC(postTime);
 			cleanSummary = event.getContentRenderer().stripHTML($.content('summary'));
 			post = fbSocialManager.getfbSocialGateway().postToFacebookPage(message="#$.content('title')#"
-                                                        , link="#$.content().getURL(complete='true')#"
+                                                        , link="#contentLink#"
                                                         , description="#cleanSummary#"
                                                         , name=""
                                                         , picture="#$.getURLForImage(fileid=$.content('fileid'), size='large', complete=true)#"

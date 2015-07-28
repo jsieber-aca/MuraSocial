@@ -119,6 +119,19 @@
 						message=""
 						optionList="1^0"
 						optionLabelList="Yes^No" />
+					
+					<attribute 
+						name="postToFacebookLink"
+						label="Custom Link"
+						hint="A link with Google Analytics Campaign variables. If left blank, the content url link will be used."
+						type="text"
+						defaultValue=""
+						required="false"
+						validation=""
+						regex=""
+						message=""
+						optionList=""
+						optionLabelList="" />
 				</attributeset>
 			</extension>
 			
