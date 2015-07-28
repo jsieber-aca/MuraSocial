@@ -12,7 +12,7 @@
 		pluginName = 'MuraSocial'
 		, package = 'MuraSocial'
 		, loadPriority = 5
-		, version = '1.0.0'
+		, version = '1.1.0'
 		, provider = 'John Sieber'
 		, providerURL = 'http://john-sieber.com'
 		, category = 'Application'

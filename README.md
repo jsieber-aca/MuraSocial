@@ -11,6 +11,14 @@ This is a Mura CMS plugin to aid in sharing content to Social Networks.
 ###This plugin requires the creation of a non-expiring Page Access token for the Facebook Page that you will be posting to. The following instructions show how to create such an AccessToken.
 ToDo: create instructions here...
 
+##Version History
+
+##1.1.0
+- Added functionality to use a custom url with Google Analytics campaign tagging. This is a new field in the publishing tab and left blank it will use the content url instead.
+
+##1.0.0
+- Original Release
+
 
 ##License
 Copyright 2015 John Sieber
