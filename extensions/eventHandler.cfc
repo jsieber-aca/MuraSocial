@@ -67,14 +67,17 @@ component accessors=true extends='mura.plugin.pluginGenericEventHandler' output=
             $.content('postToFacebook', '0');
             // content is set to display immediately and has been approved.
 			if($.content('display') eq 1 && $.content('approved')) {
-                postTime = dateAdd("n", 10, now());
+                postTime = dateAdd("n", 15, now());
+				writeLog(file="MuraSocial", text="Display Value - #$.content('display')# Approved Value - #$.content('approved')# Post Time - #postTime#");
             }else if($.content('display') eq 2 && $.content('approved')){
 				if(dateCompare($.content('displayStart'), now()) == 1){
 					// dispaly date is in the future due to scheduled mura content - setup scheduled Facebook post.
-					postTime = dateAdd("n", 10, $.content('displayStart'));
+					postTime = dateAdd("n", 15, $.content('displayStart'));
+					writeLog(file="MuraSocial", text="Display Value - #$.content('display')# Approved Value - #$.content('approved')# Post Time - #postTime#");
 				}else{
 					// content that was previously scheduled, but is now live. Schedule in ten minutes
-					postTime = dateAdd("n", 10, now());
+					postTime = dateAdd("n", 15, now());
+					writeLog(file="MuraSocial", text="Display Value - #$.content('display')# Approved Value - #$.content('approved')# Post Time - #postTime#");
 				}
 			}
 			// post to Facebook
