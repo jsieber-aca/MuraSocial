@@ -61,7 +61,7 @@ component accessors=true extends='mura.plugin.pluginGenericEventHandler' output=
         
         // $.content('postToFacebook') Class extension for setting up content to be posted values are 0 or 1
 
-        if($.content('postToFacebook')){
+        if($.content('postToFacebook') && $.content('approved')){
             // set postToFacebook back to no.
             
             $.content('postToFacebook', '0');
@@ -103,7 +103,9 @@ component accessors=true extends='mura.plugin.pluginGenericEventHandler' output=
 				writeLog(file="MuraSocial", text="#$.content('lastUpdateBy')# has posted to Facebook. Post id: #response.id#")
 			}
           	
-        }
+        }else{
+			$.content('postToFacebook', '0');
+		}
 		
 	}
 
